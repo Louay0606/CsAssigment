@@ -2,7 +2,7 @@ package org.example;
 
 import java.util.*;
 
-public abstract class Course {
+public abstract class Course implements Comparable<Course> {
     protected String code;
     protected String title;
     protected double weight;
@@ -48,6 +48,11 @@ public abstract class Course {
         if (o == null || getClass() != o.getClass()) return false;
         Course course = (Course) o;
         return Double.compare(weight, course.weight) == 0 && Objects.equals(code, course.code) && Objects.equals(title, course.title) && Objects.equals(professor, course.professor) && Objects.equals(students, course.students) && Objects.equals(grades, course.grades);
+    }
+
+    @Override
+    public int compareTo(Course o) {
+        return Double.compare(weight, o.weight);
     }
 
     @Override
