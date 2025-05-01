@@ -22,10 +22,20 @@ public abstract class Course implements Comparable<Course> {
         students.add(s);
     }
 
+    /**
+     * a student grade into the system
+     * @param student
+     * @param grade
+     */
     public void addGrade(Student student, double grade) {
         grades.put(student, grade);
     }
 
+    /**
+     * Add a students grade using their student id and the grade they received
+     * @param studentId
+     * @param grade
+     */
     public void addGrade(String studentId, double grade) {
         for (Student s : students) {
             if (s.getId().equals(studentId)) {
@@ -39,6 +49,10 @@ public abstract class Course implements Comparable<Course> {
         return grades.get(s);
     }
 
+    /**
+     * calculate the class average by using everyones grades in that course
+     * @return the average grade in the course
+     */
     public double calculateClassAverage() {
         return grades.values().stream().mapToDouble(Double::doubleValue).average().orElse(0.0);
     }

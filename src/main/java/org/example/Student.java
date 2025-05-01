@@ -19,6 +19,10 @@ public class Student extends User  {
         courses.add(c);
     }
 
+    /**
+     * calculate students r-score using grade , class average and the weight of a course
+     * @return the calculated r-score
+     */
     public Map<String, Double> calculateRScore() {
         Map<String, Double> rScores = new HashMap<>();
         for (Course c : courses) {

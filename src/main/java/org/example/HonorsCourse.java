@@ -12,10 +12,23 @@ public class HonorsCourse extends Course implements RScoreCalculable {
         this.honorBonus = honorBonus;
     }
 
+    /**
+     * apply a bonus to the student grade if taking a hounours course
+     * @param grade
+     * @return bonified grade
+     */
     public double applyBonus(double grade) {
         return honorBonus + grade;
     }
 
+    /**
+     * calculate a students r-Score using their grade , the class average and the weight of eaxh course
+     *
+     * @param grade
+     * @param classAverage
+     * @param weight
+     * @return the rscore with a bonus due to the student being in honours
+     */
     @Override
     public double calculateRScore(double grade, double classAverage, double weight) {
         double boosted = applyBonus(grade);

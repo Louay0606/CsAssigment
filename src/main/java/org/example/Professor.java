@@ -13,7 +13,12 @@ public class Professor extends User {
             this.department = department;
             this.courses = new ArrayList<>();
         }
-        public void assignCourse(Course course) {
+
+    /**
+     * assigning a course to a professor
+     * @param course
+     */
+    public void assignCourse(Course course) {
             courses.add(course);
         }
 
